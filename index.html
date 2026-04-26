@@ -3,85 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unblocked Games - Play Free Games</title>
+    <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <h1 class="logo">🎮 Unblocked Games</h1>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#games">Games</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+    <div class="calculator-container">
+        <div class="calculator">
+            <div class="display">
+                <input 
+                    type="text" 
+                    id="display" 
+                    readonly 
+                    value="0"
+                    onkeydown="handleKeyDown(event)"
+                >
             </div>
-        </nav>
-    </header>
+            <div class="buttons">
+                <button onclick="appendNumber('7')">7</button>
+                <button onclick="appendNumber('8')">8</button>
+                <button onclick="appendNumber('9')">9</button>
+                <button onclick="appendOperator('/')" class="operator">÷</button>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h2>Play Amazing Games Online</h2>
-                <p>Access your favorite games anytime, anywhere. No installation required!</p>
-                <button class="cta-button" onclick="document.getElementById('games').scrollIntoView({behavior: 'smooth'})">
-                    Start Playing
-                </button>
+                <button onclick="appendNumber('4')">4</button>
+                <button onclick="appendNumber('5')">5</button>
+                <button onclick="appendNumber('6')">6</button>
+                <button onclick="appendOperator('*')" class="operator">×</button>
+
+                <button onclick="appendNumber('1')">1</button>
+                <button onclick="appendNumber('2')">2</button>
+                <button onclick="appendNumber('3')">3</button>
+                <button onclick="appendOperator('-')" class="operator">−</button>
+
+                <button onclick="appendNumber('0')" class="zero">0</button>
+                <button onclick="appendNumber('.')">.</button>
+                <button onclick="calculate()" class="equals">=</button>
+                <button onclick="appendOperator('+')" class="operator">+</button>
+
+                <button onclick="clearDisplay()" class="clear" style="grid-column: 1 / 3;">C</button>
+                <button onclick="deleteLastChar()" class="clear" style="grid-column: 3 / 5;">DEL</button>
             </div>
-        </section>
-
-        <!-- Games Section -->
-        <section id="games" class="games-section">
-            <div class="container">
-                <h2>Available Games</h2>
-                <div class="search-bar">
-                    <input 
-                        type="text" 
-                        id="searchInput" 
-                        placeholder="Search games..." 
-                        onkeyup="filterGames()"
-                    >
-                </div>
-                <div class="games-grid" id="gamesGrid">
-                    <!-- Games will be loaded here by JavaScript -->
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about-section">
-            <div class="container">
-                <h2>About Us</h2>
-                <p>
-                    Unblocked Games is your ultimate destination for fun, free online games. 
-                    Whether you're looking for action, strategy, puzzle, or casual games, 
-                    we have something for everyone. Play directly in your browser with no downloads needed!
-                </p>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <h2>Get in Touch</h2>
-                <form class="contact-form" onsubmit="handleSubmit(event)">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Unblocked Games. All rights reserved.</p>
         </div>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
